@@ -11,7 +11,6 @@ public class BaseTest {
     OrderPage1 orderPage1 = new OrderPage1(driver);
     OrderPage2 orderPage2 = new OrderPage2(driver);
     PopUpOrder popUpOrder = new PopUpOrder(driver);
-    PopUpSuccessfulOrder popUpSuccessfulOrder = new PopUpSuccessfulOrder(driver);
 
     @Before
     public void startUp() {

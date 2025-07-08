@@ -22,7 +22,8 @@ public class OrderPage2 {
     // Форма заказа "Про аренду": кнопка "Заказать"
     private By buttonOrder3 = By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']");
 
-    public void clickInputDate() {
+    public void enterInputDate(String date) {
+        driver.findElement(inputDate).sendKeys(date);
         driver.findElement(inputDate).click();
     }
 
@@ -38,18 +39,12 @@ public class OrderPage2 {
         driver.findElement(colourBlack).click();
     }
 
-    public void clickInputComment() {
+    public void enterInputComment(String comment) {
+        driver.findElement(inputComment).sendKeys(comment);
         driver.findElement(inputComment).click();
     }
 
     public void clickButtonOrder3() {
         driver.findElement(buttonOrder3).click();
-    }
-
-    public void enterInputDate(String date) {
-        driver.findElement(inputDate).sendKeys(date);
-    }
-    public void enterInputComment(String comment) {
-        driver.findElement(inputComment).sendKeys(comment);
     }
 }

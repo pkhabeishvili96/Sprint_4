@@ -32,51 +32,36 @@ public class OrderPage1 {
         return driver.findElement(heading);
     }
 
-    public void clickInputName() {
+    public void enterInputName(String name) {
         driver.findElement(inputName).click();
+        driver.findElement(inputName).sendKeys(name);
     }
 
-    public void clickInputLastName() {
+    public void clickInputLastName(String lastName) {
         driver.findElement(inputLastName).click();
+        driver.findElement(inputLastName).sendKeys(lastName);
     }
 
-    public void clickInputAddress() {
+    public void clickInputAddress(String address) {
         driver.findElement(inputAddress).click();
+        driver.findElement(inputAddress).sendKeys(address);
     }
 
-    public void clickInputMetroStation() {
+    public void clickInputMetroStation(String metroStation) {
         driver.findElement(inputMetroStation).click();
+        driver.findElement(inputMetroStation).sendKeys(metroStation);
     }
 
     public void clickDropDownListMetroStation() {
         driver.findElement(dropDownListMetroStation).click();
     }
 
-    public void clickInputPhoneNumber() {
+    public void clickInputPhoneNumber(String phoneNumber) {
         driver.findElement(inputPhoneNumber).click();
+        driver.findElement(inputPhoneNumber).sendKeys(phoneNumber);
     }
 
     public void clickButtonNext() {
         driver.findElement(buttonNext).click();
-    }
-
-    public void enterInputName(String name) {
-        driver.findElement(inputName).sendKeys(name);
-    }
-
-    public void enterInputLastName(String lastName) {
-        driver.findElement(inputLastName).sendKeys(lastName);
-    }
-
-    public void enterInputAddress(String address) {
-        driver.findElement(inputAddress).sendKeys(address);
-    }
-
-    public void enterInputMetroStation(String metroStation) {
-        driver.findElement(inputMetroStation).sendKeys(metroStation);
-    }
-
-    public void enterInputPhoneNumber(String phoneNumber) {
-        driver.findElement(inputPhoneNumber).sendKeys(phoneNumber);
     }
 }

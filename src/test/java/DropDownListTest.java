@@ -1,87 +1,40 @@
 import org.junit.Test;
-import org.openqa.selenium.JavascriptExecutor;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertTrue;
 
+@RunWith(Parameterized.class)
 public class DropDownListTest extends BaseTest {
 
-    @Test
-    public void openDropDownListTest1() {
-        homePage.openHomePage();
-        WebElement arrowElement1 = homePage.getArrow1();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement1);
-        homePage.clickArrow1();
-        WebElement textElement1 = homePage.getText1();
-        assertTrue("Соответствующий текст-1 не открывается", textElement1.isDisplayed());
+    private final By arrow;
+    private final By text;
+
+    public DropDownListTest(By arrow, By text) {
+        this.arrow = arrow;
+        this.text = text;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getDropDownList() {
+        return new Object[][]{
+                {By.id("accordion__heading-0"), By.xpath(".//p[text()='Сутки — 400 рублей. Оплата курьеру — наличными или картой.']")},
+                {By.id("accordion__heading-1"), By.xpath(".//p[text()='Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.']")},
+                {By.id("accordion__heading-2"), By.xpath(".//p[text()='Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.']")},
+                {By.id("accordion__heading-3"), By.xpath(".//p[text()='Только начиная с завтрашнего дня. Но скоро станем расторопнее.']")},
+                {By.id("accordion__heading-4"), By.xpath(".//p[text()='Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.']")},
+                {By.id("accordion__heading-5"), By.xpath(".//p[text()='Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.']")},
+                {By.id("accordion__heading-6"), By.xpath(".//p[text()='Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.']")},
+                {By.id("accordion__heading-7"), By.xpath(".//p[text()='Да, обязательно. Всем самокатов! И Москве, и Московской области.']")},
+        };
     }
 
     @Test
-    public void openDropDownListTest2() {
+    public void openDropDownListTest() {
         homePage.openHomePage();
-        WebElement arrowElement2 = homePage.getArrow2();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement2);
-        homePage.clickArrow2();
-        WebElement textElement2 = homePage.getText2();
-        assertTrue("Соответствующий текст-2 не открывается", textElement2.isDisplayed());
-    }
-
-    @Test
-    public void openDropDownListTest3() {
-        homePage.openHomePage();
-        WebElement arrowElement3 = homePage.getArrow3();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement3);
-        homePage.clickArrow3();
-        WebElement textElement3 = homePage.getText3();
-        assertTrue("Соответствующий текст-3 не открывается", textElement3.isDisplayed());
-    }
-
-    @Test
-    public void openDropDownListTest4() {
-        homePage.openHomePage();
-        WebElement arrowElement4 = homePage.getArrow4();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement4);
-        homePage.clickArrow4();
-        WebElement textElement4 = homePage.getText4();
-        assertTrue("Соответствующий текст-4 не открывается", textElement4.isDisplayed());
-    }
-
-    @Test
-    public void openDropDownListTest5() {
-        homePage.openHomePage();
-        WebElement arrowElement5 = homePage.getArrow5();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement5);
-        homePage.clickArrow5();
-        WebElement textElement5 = homePage.getText5();
-        assertTrue("Соответствующий текст-5 не открывается", textElement5.isDisplayed());
-    }
-
-    @Test
-    public void openDropDownListTest6() {
-        homePage.openHomePage();
-        WebElement arrowElement6 = homePage.getArrow6();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement6);
-        homePage.clickArrow6();
-        WebElement textElement6 = homePage.getText6();
-        assertTrue("Соответствующий текст-6 не открывается", textElement6.isDisplayed());
-    }
-
-    @Test
-    public void openDropDownListTest7() {
-        homePage.openHomePage();
-        WebElement arrowElement7 = homePage.getArrow7();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement7);
-        homePage.clickArrow7();
-        WebElement textElement7 = homePage.getText7();
-        assertTrue("Соответствующий текст-7 не открывается", textElement7.isDisplayed());
-    }
-
-    @Test
-    public void openDropDownListTest8() {
-        homePage.openHomePage();
-        WebElement arrowElement8 = homePage.getArrow8();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", arrowElement8);
-        homePage.clickArrow8();
-        WebElement textElement8 = homePage.getText8();
-        assertTrue("Соответствующий текст-8 не открывается", textElement8.isDisplayed());
+        homePage.clickArrow(arrow);
+        WebElement textElement = homePage.getText(text);
+        assertTrue("Соответствующий текст не открывается", textElement.isDisplayed());
     }
 }
