@@ -4,6 +4,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertTrue;
+import static page.HomePage.*;
 
 @RunWith(Parameterized.class)
 public class ButtonOrderTest extends BaseTest {
@@ -17,8 +18,8 @@ public class ButtonOrderTest extends BaseTest {
     @Parameterized.Parameters
     public static Object[][] getButtonOrder() {
         return new Object[][]{
-                {By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']")},
-                {By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']")},
+                {buttonOrder1},
+                {buttonOrder2},
         };
     }
 

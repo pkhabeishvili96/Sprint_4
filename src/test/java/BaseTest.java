@@ -6,15 +6,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import page.*;
 
 public class BaseTest {
-    WebDriver driver = new ChromeDriver();
-    HomePage homePage = new HomePage(driver);
-    OrderPage1 orderPage1 = new OrderPage1(driver);
-    OrderPage2 orderPage2 = new OrderPage2(driver);
-    PopUpOrder popUpOrder = new PopUpOrder(driver);
+    WebDriver driver;
+    HomePage homePage;
+    OrderPage1 orderPage1;
+    OrderPage2 orderPage2;
+    PopUpOrder popUpOrder;
+    Constants constants;
 
     @Before
     public void startUp() {
         WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        homePage = new HomePage(driver);
+        orderPage1 = new OrderPage1(driver);
+        orderPage2 = new OrderPage2(driver);
+        popUpOrder = new PopUpOrder(driver);
+        constants = new Constants(driver);
     }
 
     @After

@@ -4,6 +4,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertTrue;
+import static page.HomePage.*;
 
 @RunWith(Parameterized.class)
 public class OrderPageTest extends BaseTest{
@@ -31,8 +32,8 @@ public class OrderPageTest extends BaseTest{
     @Parameterized.Parameters
     public static Object[][] getPersonalData() {
         return new Object[][]{
-                {By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']"), "Мария", "Брошкина", "ул. Морковок", "Сокол", "12345678911", "05.08.2025", "Привезите самый быстрый!"},
-                {By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']"), "Иван", "Расческин", "ул. Помидорок", "Рижская", "82345678911", "09.10.2026", "Привезите самый медленный!"},
+                {buttonOrder1, "Мария", "Брошкина", "ул. Морковок", "Сокол", "12345678911", "05.08.2025", "Привезите самый быстрый!"},
+                {buttonOrder2, "Иван", "Расческин", "ул. Помидорок", "Рижская", "82345678911", "09.10.2026", "Привезите самый медленный!"},
         };
     }
 

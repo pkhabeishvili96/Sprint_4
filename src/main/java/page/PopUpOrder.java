@@ -14,7 +14,7 @@ public class PopUpOrder {
     private By buttonYes = By.xpath(".//button[text()='Да']");
 
     // Всплывающее окно "Заказ оформлен"
-    private By popUp = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ']");
+    private By popUp = By.xpath(".//div[text()='Заказ оформлен']");
 
     public WebElement getPopUp() {
         return driver.findElement(popUp);
